@@ -4,69 +4,108 @@ import Image from "next/image";
 const projects = () => {
   const projectList = [
     {
-      title: "shadcn/ui kit for Figma",
-      description:
-        "A comprehensive collection of customizable components, charts and assets based on the popular shadcn/ui library.",
-      date: "Sep 2024",
-      image: "/projects/ui-lib.png",
+      title: "grouplyy.com",
+      description: "A clean social grouping platform with a modern UI.",
+      date: "2024",
+      url: "https://lebaas-x-b659.vercel.app/",
     },
     {
-      title: "AI Dev for Ant Design",
-      description:
-        "A Figma plugin that transforms your Figma components or images into ready-to-use Ant Design React code.",
-      date: "Aug 2024",
-      image: "/projects/crypto-dashboard.png",
+      title: "sward.lol",
+      description: "A modern personal site with animations and a clean design.",
+      date: "2024",
+      url: "https://www.sward.lol",
     },
     {
-      title: "Icon Tagger",
+      title: "codemotion.online",
       description:
-        "A Figma plugin that generates keywords for your icons with AI and adds them to component descriptions, making it easier to find them.",
-      date: "Jul 2024",
-      image: "/projects/portfolio.png",
+        "Creative coding lessons & projects with elegant UI components.",
+      date: "2024",
+      url: "https://www.codemotion.online",
+    },
+    {
+      title: "clingai.space",
+      description:
+        "Website where users can share and explore AI-generated content.",
+      date: "2024",
+      url: "https://www.clingai.space/",
+    },
+    {
+      title: "Crypto Portfolio",
+      description:
+        "A personal crypto portfolio dashboard with a clean interface.",
+      date: "2024",
+      url: "https://crypto-portfolio-rose.vercel.app/",
+    },
+    {
+      title: "Ragon Solutions",
+      description:
+        "A software solutions company delivering modern digital products.",
+      date: "2024",
+      url: "https://ragonsolutions.com/",
+    },
+    {
+      title: "Cal.com",
+      description: "A modern scheduling platform for teams and individuals.",
+      date: "2024",
+      url: "https://cal.com",
     },
   ];
 
   return (
     <div className="w-full max-w-xl mx-auto mt-6 px-0">
-      <ul className="flex flex-col gap-6">
-        {projectList.map((p, i) => (
-          <li
-            key={i}
-            className="flex items-start gap-4"
-            aria-labelledby={`project-title-${i}`}
-          >
-            {/* Left icon / image */}
-            <div className="flex-shrink-0 relative h-10 w-10 rounded-md overflow-hidden bg-black/10 dark:bg-white/5 shadow-sm">
-              <Image
-                src={p.image}
-                alt={p.title}
-                fill
-                className="object-cover"
-                sizes="40px"
-              />
-            </div>
+      <ul className="flex flex-col gap-4">
+        {projectList.map((p, i) => {
+          const favicon = `https://www.google.com/s2/favicons?sz=128&domain=${p.url}`;
 
-            {/* Right content */}
-            <div className="min-w-0">
-              <div className="flex items-center gap-3">
-                <h3
-                  id={`project-title-${i}`}
-                  className="text-sm font-semibold truncate text-black dark:text-white"
-                >
-                  {p.title}
-                </h3>
-
-                <span className="text-sm text-black/40 dark:text-white/40">•</span>
-
-                <span className="text-sm text-black/60 dark:text-white/60">{p.date}</span>
+          return (
+            <li
+              key={i}
+              className="
+                group flex items-start gap-4 w-full p-3
+                rounded-lg transition-all duration-300
+                cursor-pointer
+                hover:bg-black/5 dark:hover:bg-white/5
+                hover:scale-[1.02]
+                hover:shadow-[0_0_20px_rgba(255,255,255,0.06)]
+                border border-transparent
+                hover:border-black/10 dark:hover:border-white/10
+              "
+            >
+              {/* Favicon */}
+              <div className="flex-shrink-0 relative h-10 w-10 rounded-md overflow-hidden bg-black/10 dark:bg-white/5 shadow-sm">
+                <Image
+                  src={favicon}
+                  alt={p.title}
+                  fill
+                  sizes="40px"
+                  className="object-cover"
+                />
               </div>
 
-              <p className="mt-1 text-sm text-black/70 dark:text-white/60 leading-relaxed">
-                {p.description}
-              </p>
-            </div>
-          </li>
-        ))}
+              {/* Text Content */}
+              <div className="min-w-0">
+                <div className="flex items-center gap-3">
+                  <h3
+                    id={`project-title-${i}`}
+                    className="text-sm font-semibold truncate text-black dark:text-white"
+                  >
+                    {p.title}
+                  </h3>
+
+                  <span className="text-sm text-black/40 dark:text-white/40">•</span>
+
+                  <span className="text-sm text-black/60 dark:text-white/60">
+                    {p.date}
+                  </span>
+                </div>
+
+                <p className="mt-1 text-sm text-black/70 dark:text-white/60 leading-relaxed">
+                  {p.description}
+                </p>
+              </div>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
