@@ -28,11 +28,10 @@ export default function Home() {
         "
         fill="white"
       />
-
-      {/* Theme Toggle */}
+      {/* 
       <div className="fixed top-4 left-4 sm:top-6 sm:left-6 z-40">
         <ModeToggle />
-      </div>
+      </div> */}
 
       {/* ===================== HERO ===================== */}
       <section className="relative min-h-[65vh] sm:min-h-[70vh] flex items-center justify-center pt-4 sm:pt-8">
@@ -128,7 +127,7 @@ export default function Home() {
                 <span className="flex items-center gap-2">
                   <Rocket className="h-4 w-4 sm:h-5 sm:w-5" />
                   Frontend engineer, UI designer & emerging creator from
-                  Pakistan — always building, always experimenting.
+                  Pakistan always building, always experimenting.
                 </span>
               </p>
 
