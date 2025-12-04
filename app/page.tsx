@@ -107,7 +107,7 @@ export default function Home() {
                 <Sparkles className="h-5 w-5 sm:h-6 sm:w-6" />
                 I build UI Design projects
                 <br className="hidden sm:block" />
-                that improve my workflow and save my time
+                _that improve my workflow and save my time
               </h1>
 
               {/* Subtext */}
