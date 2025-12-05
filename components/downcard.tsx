@@ -68,7 +68,7 @@ const DownCard = () => {
             <Button
               onClick={() =>
                 (window.location.href =
-                  "https://donate.stripe.com/test_cNieVd6ue7Bm7aqcNZeUU00")
+                  "https://donate.stripe.com/14A4gzbOyg7SgL015heUU01")
               }
               className="
                 mt-2 w-fit 
