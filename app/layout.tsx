@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { CommandMenu } from "@/components/command-menu";
+import { CommandHint } from "@/components/command-hint";
 
 // Replace Geist with Roboto Mono
 const robotoMono = Roboto_Mono({
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
   title: "FaizurRehman — Developer & UI Designer",
   description:
     "Portfolio of FaizurRehman (crypto). Frontend engineer and UI designer crafting modern interfaces, design systems, and high-performance digital experiences.",
-  
+
   // Optional but recommended SEO upgrades:
   keywords: [
     "FaizurRehman",
@@ -62,6 +64,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <CommandMenu />
+          <CommandHint />
         </ThemeProvider>
       </body>
     </html>

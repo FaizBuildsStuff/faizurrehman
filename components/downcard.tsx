@@ -1,87 +1,58 @@
 "use client";
 
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
 
 const DownCard = () => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30, scale: 0.95 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      initial={{ opacity: 0, scale: 0.98 }}
+      whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      whileHover={{ scale: 1.02 }}
+      transition={{ duration: 0.5 }}
       className="w-full"
     >
-      <Card
-        className="
-          w-full 
-          bg-[#151518] 
-          border border-white/10 
-          shadow-[0_0_25px_rgba(255,255,255,0.05)]
-          rounded-xl 
-          backdrop-blur-md 
-          relative 
-          overflow-hidden
-        "
-      >
-        {/* Subtle animated glow highlight */}
-        <motion.div
-          className="absolute top-0 left-0 w-full h-full pointer-events-none"
-          initial={{ opacity: 0 }}
-          whileHover={{ opacity: 0.08 }}
-          transition={{ duration: 0.4 }}
-          style={{
-            background:
-              "radial-gradient(circle at 20% 20%, rgba(255,255,255,0.25), transparent 60%)",
-          }}
-        />
+      <div className="
+          relative w-full p-8 md:p-10
+          rounded-2xl border border-white/5 
+          bg-gradient-to-b from-[#111] to-[#080808]
+          text-center overflow-hidden
+      ">
+        {/* Abstract Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-40 bg-white/5 blur-[80px] rounded-full" />
 
-        <CardContent className="p-5 flex flex-col gap-3 relative z-10">
-          <motion.h3
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15, duration: 0.6 }}
-            className="text-lg font-semibold text-white"
-          >
-            Stay updated
-          </motion.h3>
+        <div className="relative z-10 flex flex-col items-center gap-4">
+          <div className="p-3 rounded-full bg-white/5 border border-white/5 mb-2">
+            <Sparkles className="h-5 w-5 text-white/70" />
+          </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.25, duration: 0.6 }}
-            className="text-sm text-white/60 leading-relaxed"
-          >
-            Stay updated on new products and updates.
-            <br />
-            You can unsubscribe anytime.
-          </motion.p>
+          <div>
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
+              Support My Work
+            </h3>
+            <p className="text-white/50 text-sm md:text-base max-w-sm mx-auto leading-relaxed">
+              If you like what I build, consider supporting me. It helps me create more open-source tools.
+            </p>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.6 }}
-          >
-            <Button
-              onClick={() =>
-                (window.location.href =
-                  "https://donate.stripe.com/14A4gzbOyg7SgL015heUU01")
-              }
-              className="
-                mt-2 w-fit 
-                bg-white text-black 
-                hover:bg-white/80 
-                font-medium px-4 py-2 rounded-md shadow
+          <Button
+            onClick={() =>
+              (window.location.href = "https://donate.stripe.com/14A4gzbOyg7SgL015heUU01")
+            }
+            className="
+                mt-4 h-11 px-8 rounded-full
+                bg-white text-black font-semibold
+                hover:bg-white/90 hover:scale-105
+                transition-all duration-300
+                shadow-[0_0_20px_rgba(255,255,255,0.15)]
               "
-            >
-              Subscribe
-            </Button>
-          </motion.div>
-        </CardContent>
-      </Card>
+          >
+            Donate via Stripe
+          </Button>
+        </div>
+      </div>
     </motion.div>
   );
 };

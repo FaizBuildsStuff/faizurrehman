@@ -3,99 +3,67 @@
 import React from "react";
 import { Separator } from "@/components/ui/separator";
 import { motion } from "framer-motion";
-import { Github, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Github, Twitter, Instagram, Linkedin, Mail } from "lucide-react";
 
 const Footer = () => {
+  const socialLinks = [
+    { icon: Github, url: "https://github.com/CryptoGuyDeve" },
+    { icon: Twitter, url: "https://x.com/Faiz_Rrhman" },
+    { icon: Linkedin, url: "https://www.linkedin.com/in/faizu-rrehman-4856b4319/" },
+    { icon: Instagram, url: "https://www.instagram.com/cryptoguy.officiall/" },
+  ];
+
   return (
-    <footer className="w-full mt-20 pb-10 text-white/80">
+    <footer className="w-full mt-10 text-white/60">
+
       {/* ================= BIO SECTION ================= */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="max-w-xl mx-auto px-4"
+        className="w-full"
       >
-        <h3 className="text-xl font-semibold text-white mb-3">BIO</h3>
+        <div className="flex items-center gap-4 mb-6">
+          <span className="text-xs font-bold tracking-widest uppercase text-white/40">About Me</span>
+          <div className="h-px flex-1 bg-white/5"></div>
+        </div>
 
-        <Separator className="my-4 bg-white/10" />
-
-        <p className="text-sm leading-relaxed text-white/70">
-          I'm Faizurrehman, a 16-year-old self-taught developer and UI
-          enthusiast from Lahore, Pakistan. Over the past few years, I've built
-          modern web experiences, SaaS tools, and creative UI systems using
-          technologies like React, Next.js, TypeScript, and design tools such as
-          Figma and After Effects.
-          <br />
-          <br />
-          I love creating smooth, fast, and modern digital experiences — from
-          social platforms like Grouplyy to design-driven products like Sward
-          and creative tools under ClingAI. My focus is always on speed,
-          workflow, and clean UI that feels modern and intentional.
-          <br />
-          <br />
-          Today, I work on improving my skillset every day while building
-          products that help people explore, create, and interact with better
-          design and better code. Always building, always experimenting.
+        <p className="text-sm md:text-base leading-relaxed text-white/70 max-w-2xl">
+          I'm <b>Faizurrehman</b>, a 16-year-old developer obsessed with quality.
+          Building tools like <span className="text-white/90">Sward</span> and <span className="text-white/90">ClingAI</span> to push the web forward.
+          I combine clean code with fluid motion to create software that feels effortless.
         </p>
 
-        <Separator className="my-6 bg-white/10" />
+        <div className="h-px w-full bg-white/5 my-8"></div>
       </motion.div>
 
       {/* ================= FOOTER BOTTOM SECTION ================= */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.5 }}
-        className="max-w-xl mx-auto px-4 flex items-center justify-between"
+        transition={{ delay: 0.1, duration: 0.5 }}
+        className="flex flex-col md:flex-row items-center justify-between gap-6"
       >
         {/* COPYRIGHT */}
-        <p className="text-xs text-white/50">
-          © 2030 <span className="font-semibold text-white">FaizuRrehman</span>.
-          All rights reserved.
+        <p className="text-xs text-white/40 font-medium">
+          © 2030 Faizur Rehman. All rights reserved.
         </p>
 
         {/* SOCIAL ICONS */}
-        <div className="flex items-center gap-3">
-          {/* GitHub */}
-          <motion.a
-            href="https://github.com/CryptoGuyDeve"
-            target="_blank"
-            whileHover={{ scale: 1.2, opacity: 1 }}
-            className="opacity-60 hover:opacity-100 transition"
-          >
-            <Github size={18} />
-          </motion.a>
-
-          {/* LinkedIn */}
-          <motion.a
-            href="https://www.linkedin.com/in/faizu-rrehman-4856b4319/"
-            target="_blank"
-            whileHover={{ scale: 1.2, opacity: 1 }}
-            className="opacity-60 hover:opacity-100 transition"
-          >
-            <Linkedin size={18} />
-          </motion.a>
-
-          {/* Twitter / X */}
-          <motion.a
-            href="https://x.com/Faiz_Rrhman"
-            target="_blank"
-            whileHover={{ scale: 1.2, opacity: 1 }}
-            className="opacity-60 hover:opacity-100 transition"
-          >
-            <Twitter size={18} />
-          </motion.a>
-
-          {/* Instagram */}
-          <motion.a
-            href="https://www.instagram.com/cryptoguy.officiall/"
-            target="_blank"
-            whileHover={{ scale: 1.2, opacity: 1 }}
-            className="opacity-60 hover:opacity-100 transition"
-          >
-            <Instagram size={18} />
-          </motion.a>
+        <div className="flex items-center gap-5">
+          {socialLinks.map((social, idx) => (
+            <motion.a
+              key={idx}
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.2, rotate: 5, color: "#fff" }}
+              className="text-white/50 hover:text-white transition-colors"
+            >
+              <social.icon size={18} />
+            </motion.a>
+          ))}
         </div>
       </motion.div>
     </footer>

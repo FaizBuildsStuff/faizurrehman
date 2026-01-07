@@ -1,10 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles, Layers, User, Rocket } from "lucide-react";
+import { Layers } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Spotlight } from "@/components/ui/spotlight";
-import { Separator } from "@/components/ui/separator";
 import Projects from "@/components/projects";
 import DownCard from "@/components/downcard";
 import Footer from "@/components/footer";
@@ -15,123 +14,118 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 15, filter: "blur(5px)" },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5 },
+    filter: "blur(0px)",
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen w-full bg-[#050505] text-white selection:bg-white/20 overflow-x-hidden">
-      
+    <div className="relative min-h-screen w-full bg-[#050505] text-white/90 selection:bg-white/20 overflow-x-hidden font-sans">
+
+      {/* --- Global Grain Overlay --- */}
+      <div className="fixed inset-0 pointer-events-none opacity-25 z-50 mix-blend-overlay">
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] brightness-100 contrast-150"></div>
+      </div>
+
       {/* --- Ambient Background --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <Spotlight
-          className="-top-40 left-0 md:left-60 md:-top-20 z-10"
-          fill="rgba(255, 255, 255, 0.08)"
+          className="-top-40 left-0 md:left-60 md:-top-20 z-10 opacity-30"
+          fill="rgba(255, 255, 255, 0.03)"
         />
-        <div className="absolute top-0 inset-x-0 h-[500px] bg-gradient-to-b from-white/[0.03] to-transparent" />
+        <div className="absolute top-0 inset-x-0 h-[600px] bg-gradient-to-b from-white/[0.02] to-transparent" />
       </div>
 
-      <main className="relative z-10 max-w-2xl mx-auto px-6 py-20 md:py-32">
-        
-        {/* --- Hero Section --- */}
+      <main className="relative z-10 max-w-[620px] mx-auto px-6 py-16 md:py-24">
+
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-start gap-8"
+          className="flex flex-col items-start gap-16"
         >
-          {/* Status Badge */}
-          <motion.div variants={itemVariants} className="relative">
-            <div className="absolute inset-0 bg-white/20 blur-xl rounded-full opacity-20" />
-            <div className="
-              relative inline-flex items-center gap-2 px-3 py-1.5 
-              rounded-full bg-white/5 border border-white/10 
-              text-xs font-medium text-white/80
-              backdrop-blur-md shadow-sm
-            ">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-              </span>
-              Available for new projects
+          {/* --- Profile Card Section --- */}
+          <motion.div variants={itemVariants} className="w-full relative group">
+            {/* Banner */}
+            <div className="relative w-full h-40 md:h-48 rounded-[20px] overflow-hidden mb-[-60px] md:mb-[-70px] border border-white/5 shadow-2xl transition-all duration-700 hover:shadow-[0_0_40px_rgba(255,255,255,0.05)]">
+              <img
+                src="/cryptobanner.jpg"
+                alt="Profile Banner"
+                className="w-full h-full object-cover opacity-90 scale-105 group-hover:scale-100 grayscale-[0.5] group-hover:grayscale-0 transition-all duration-1000 ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent opacity-90" />
             </div>
-          </motion.div>
 
-          {/* Intro / Avatar Block */}
-          <motion.div 
-            variants={itemVariants} 
-            className="flex flex-col-reverse sm:flex-row items-start sm:items-center gap-6 w-full"
-          >
-            <div className="flex-1 space-y-2">
-              <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white/95">
-                faizurrehman
-              </h1>
-              <p className="text-lg text-white/60 font-medium">
-                Full-Stack Developer & UI Designer
-              </p>
-            </div>
-            
-            <div className="relative flex-shrink-0">
-               {/* Glow effect behind avatar */}
-               <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 blur-2xl rounded-full" />
-               <div className="relative p-1 rounded-full border border-white/10 bg-black/40 backdrop-blur-sm">
-                 <Avatar className="h-20 w-20 sm:h-24 sm:w-24 border border-white/5">
+            {/* Header Content */}
+            <div className="px-4 relative z-10">
+              <div className="relative inline-block">
+                {/* PFP Container */}
+                <div className="relative h-28 w-28 md:h-36 md:w-36 rounded-full p-1.5 bg-[#050505] ring-1 ring-white/10 shadow-2xl">
+                  <Avatar className="h-full w-full rounded-full border border-white/5">
                     <AvatarImage src="/crypto.jpg" alt="faizurrehman" className="object-cover" />
                     <AvatarFallback className="text-black bg-white">FR</AvatarFallback>
-                 </Avatar>
-               </div>
+                  </Avatar>
+                  {/* Status Indicator */}
+                  <div className="absolute bottom-2 right-2 h-5 w-5 bg-[#050505] rounded-full flex items-center justify-center ring-4 ring-[#050505]">
+                    <span className="relative flex h-2.5 w-2.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 flex flex-col gap-4">
+                <div>
+                  <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white mb-2">
+                    Faizur Rehman
+                  </h1>
+                  <p className="text-base md:text-lg text-white/50 font-medium tracking-tight">
+                    Full-Stack Developer & UI Designer
+                  </p>
+                </div>
+
+                <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-lg tracking-tight font-light">
+                  Crafting <span className="text-white font-medium">high-performance</span> digital experiences with a focus on motion, aesthetics, and scalability.
+                </p>
+              </div>
             </div>
           </motion.div>
 
-          {/* Bio Description */}
-          <motion.div variants={itemVariants} className="space-y-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-xl">
-            <p>
-              I build <span className="text-white font-semibold">pixel-perfect</span> interfaces 
-              and craft digital experiences that are fast, accessible, and visually stunning.
-            </p>
-            <p>
-              Merging technical depth with creative design to create 
-              software that feels <span className="italic text-white/90">alive</span>.
-            </p>
-          </motion.div>
-          
-          {/* Social / Connect (Optional placeholder or small links could go here) */}
-          
-          {/* Divider */}
-          <motion.div variants={itemVariants} className="w-full pt-8 pb-4">
-            <Separator className="bg-white/10" />
+          {/* Spacer Line */}
+          <motion.div variants={itemVariants} className="w-full px-4">
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
           </motion.div>
 
           {/* --- Projects Section --- */}
-          <motion.div variants={itemVariants} className="w-full space-y-6">
-            <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-white/90 flex items-center gap-2">
-                <Layers className="h-5 w-5 text-white/50" />
-                Selected Projects
+          <motion.div variants={itemVariants} className="w-full space-y-10">
+            <div className="flex items-center gap-3 text-white/60 px-2">
+              <Layers className="h-4 w-4" />
+              <h2 className="text-xs font-bold tracking-[0.2em] uppercase">
+                Selected Work
               </h2>
-              {/* Optional 'View All' Link could go here */}
             </div>
-            
+
             <Projects />
           </motion.div>
-          
-          <motion.div variants={itemVariants} className="w-full pt-10">
+
+          <motion.div variants={itemVariants} className="w-full pt-16">
             <DownCard />
           </motion.div>
 
-          <motion.div variants={itemVariants} className="w-full pt-6">
+          <motion.div variants={itemVariants} className="w-full pt-8 pb-16">
             <Footer />
           </motion.div>
 
