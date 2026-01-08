@@ -8,6 +8,9 @@ import Projects from "@/components/projects";
 import DownCard from "@/components/downcard";
 import Footer from "@/components/footer";
 import React from "react";
+import { TimeWeather } from "@/components/widgets/time-weather";
+import { CodingActivity } from "@/components/widgets/coding-activity";
+import { Guestbook } from "@/components/widgets/guestbook";
 
 // Animation variants for staggered entrance
 const containerVariants = {
@@ -92,6 +95,14 @@ export function HomeScreen({ tweet }: HomeScreenProps) {
                                 </div>
                             </div>
 
+                            {/* Time & Weather Widget - Absolute Top Right of Profile Card Content */}
+                            <div className="absolute top-0 right-0 z-20 hidden md:block">
+                                <TimeWeather />
+                            </div>
+                            <div className="md:hidden mt-4 mb-2">
+                                <TimeWeather />
+                            </div>
+
                             <div className="mt-6 flex flex-col gap-4">
                                 <div>
                                     <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white mb-2">
@@ -146,6 +157,15 @@ export function HomeScreen({ tweet }: HomeScreenProps) {
                         </div>
 
                         <Projects />
+                    </motion.div>
+
+                    {/* --- Coding Activity Section --- */}
+                    <motion.div variants={itemVariants} className="w-full">
+                        <CodingActivity />
+                    </motion.div>
+
+                    <motion.div variants={itemVariants} className="w-full pt-8">
+                        <Guestbook />
                     </motion.div>
 
                     <motion.div variants={itemVariants} className="w-full pt-16">
