@@ -7,10 +7,10 @@ import { Github, Twitter, Instagram, Linkedin, Mail } from "lucide-react";
 
 const Footer = () => {
   const socialLinks = [
-    { icon: Github, url: "https://github.com/CryptoGuyDeve" },
-    { icon: Twitter, url: "https://x.com/Faiz_Rrhman" },
+    { icon: Github, url: "https://github.com/FaizBuildsStuff" },
+    { icon: Twitter, url: "https://x.com/FaizBuildsStuff" },
     { icon: Linkedin, url: "https://www.linkedin.com/in/faizu-rrehman-4856b4319/" },
-    { icon: Instagram, url: "https://www.instagram.com/cryptoguy.officiall/" },
+    { icon: Instagram, url: "https://www.instagram.com/faizbuildsstuff/" },
   ];
 
   return (

@@ -94,7 +94,7 @@ export const CommandMenu = () => {
                                 </div>
                                 <Command.Group>
                                     <CommandItem
-                                        onSelect={() => openLink("https://github.com/CryptoGuyDeve")}
+                                        onSelect={() => openLink("https://github.com/FaizBuildsStuff")}
                                     >
                                         <Github className="mr-3 h-4 w-4 text-white/50" />
                                         <span>GitHub</span>

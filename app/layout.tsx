@@ -12,7 +12,7 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://faizurrehman.vercel.app"),
+  metadataBase: new URL("https://www.faizbuildstuff.biz"),
   title: "FaizBuildsStuff | Faizur Rehman - Full Stack Developer",
   description:
     "FaizBuildsStuff (Faizur Rehman). Frontend engineer and UI designer building premium digital experiences, unique web apps, and design systems.",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "portfolio"
   ],
 
-  authors: [{ name: "Faizur Rehman", url: "https://faizurrehman.vercel.app" }],
+  authors: [{ name: "Faizur Rehman", url: "https://www.faizbuildstuff.biz" }],
 
   openGraph: {
     title: "FaizBuildsStuff | Full Stack Developer",
@@ -38,14 +38,14 @@ export const metadata: Metadata = {
     siteName: "FaizBuildsStuff",
     locale: "en_US",
     type: "website",
-    url: "https://faizurrehman.vercel.app",
+    url: "https://www.faizbuildstuff.biz",
   },
 
   twitter: {
     card: "summary_large_image",
     title: "FaizBuildsStuff",
     description: "Building premium digital experiences and design systems.",
-    creator: "@Faiz_Rrhman",
+    creator: "@FaizBuildsStuff",
   },
 
   icons: {
@@ -64,11 +64,11 @@ export default function RootLayout({
     "@type": "Person",
     "name": "Faizur Rehman",
     "alternateName": "FaizBuildsStuff",
-    "url": "https://faizurrehman.vercel.app",
+    "url": "https://www.faizbuildstuff.biz",
     "jobTitle": "Full Stack Developer",
     "sameAs": [
-      "https://github.com/CryptoGuyDeve",
-      "https://x.com/Faiz_Rrhman",
+      "https://github.com/FaizBuildsStuff",
+      "https://x.com/FaizBuildsStuff",
       "https://www.linkedin.com/in/faizurrehman"
     ],
     "description": "Frontend engineer and UI designer building premium digital experiences."
